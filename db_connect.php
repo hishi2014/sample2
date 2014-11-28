@@ -1,6 +1,5 @@
 <?php
-$options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-    );
-    $dbh = new PDO('mysql:host=localhost;dbname=test3;unix_socket=/tmp/mysql.sock', "root", "perorin5",$options);
+$url = parse_url(getenv('DATABASE_URL'));
+$dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
+$dbh = new PDO($dsn, $url['user'], $url['pass']);
 ?>
