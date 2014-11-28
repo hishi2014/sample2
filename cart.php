@@ -12,7 +12,7 @@ session_start();
         break;
       }
     }
-    if($flag){
+    if(!$flag){
       $item=array("id"=>null,"name"=>null,"price"=>null,"amount"=>null);
       $item['id']=$_POST['id'];
       $item['name']=$_POST['name'];
