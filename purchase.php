@@ -39,8 +39,8 @@ require "db_connect.php";
     }else{
         print('エラーが発生しました。<br>');
     }
-    $dbh = null;
   }
+    $dbh = null;
 ?>
 <html>
 <?php
