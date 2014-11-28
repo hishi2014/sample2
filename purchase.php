@@ -9,7 +9,7 @@ require "db_connect.php";
     try{
     $dbh->beginTransaction();
     $flag=$sth->execute($values);
-    $lastInsertId=$dbh->lastInsertId();
+    $lastInsertId=$dbh->lastInsertId('orders_id_seq');
     $dbh->commit();
     }catch (Exception $e) {
     $dbh->rollBack();
