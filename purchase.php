@@ -2,8 +2,8 @@
 session_start();
 $total_price=$_POST['total_price'];
 require "db_connect.php";
-    $values=array($total_price,1);
-    $sql="insert into orders (total_price,user_id) values (?,?)";
+    $values=array($total_price);
+    $sql="insert into orders (total_price) values (?)";
     $sth = $dbh->prepare($sql);
     $flag=false;
     try{

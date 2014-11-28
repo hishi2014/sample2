@@ -3,12 +3,23 @@ session_start();
     if(!isset($_SESSION['cart'])){
       $_SESSION['cart']=array();
     }
-    $item=array("id"=>null,"name"=>null,"price"=>null,"amount"=>null);
-    $item['id']=$_POST['id'];
-    $item['name']=$_POST['name'];
-    $item['price']=$_POST['price'];
-    $item['amount']=$_POST['amount'];
-    $_SESSION['cart'][]=$item;
+    $flag=false;
+    for( $i=0; $i<count($_SESSION['cart']); $i++ ){
+    if( $_SESSION['cart'][$i]['id'] == $_POST['id'] )
+      {
+        $_SESSION['cart'][$i]['amount'] += $_POST['amount'];
+        $flag=true;
+        break;
+      }
+    }
+    if($flag){
+      $item=array("id"=>null,"name"=>null,"price"=>null,"amount"=>null);
+      $item['id']=$_POST['id'];
+      $item['name']=$_POST['name'];
+      $item['price']=$_POST['price'];
+      $item['amount']=$_POST['amount'];
+      $_SESSION['cart'][]=$item;
+    }
 ?>
 <html>
 <table>
